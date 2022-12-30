@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+.navigation-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100px;
+    width: 100%;
+    background-color: black;
+}
+
+.navigation-bar__list {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 2px;
+}
+
+.navigation-bar__list-item {
+    padding: 10px;
+    color: whitesmoke;
+}
+.navigation-bar__list-item:hover {
+    background-color: whitesmoke;
+    color: black;
+    cursor: pointer;
+}
+
+.banner {
+    background-image: url('../img/img_la.jpg');
+    background-size: cover;
+}

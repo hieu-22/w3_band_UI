@@ -1,0 +1,56 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    width: 1100px;
+    margin: auto;
+}
+
+.header {
+    height: 600px;
+}
+
+.navigation-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgb(30, 30, 30);
+}
+
+.navigation-bar__list {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 2px;
+    list-style-type: none;
+}
+
+.navigation-bar__list-item {
+    padding: 10px;
+    color: whitesmoke;
+}
+.navigation-bar__list-item:hover {
+    background-color: whitesmoke;
+    color: black;
+    cursor: pointer;
+}
+
+.banner {
+    height: 100%;
+    width: auto;
+    background-image: url('../img/img_la.jpg');
+    background-size: cover;
+}
+
+/* main content */
+.content__about {
+    padding: 20px;
+    font-weight: 500;
+}
