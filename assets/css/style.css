@@ -2,21 +2,26 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-
 }
 
 html {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
-    max-width: 1000px;
     margin: auto;
+}
+
+.header {
+    height: 600px;
 }
 
 .navigation-bar {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 2;
+    z-index: 3;
+
+    display: flex;
+    justify-content: space-between;
     width: 100%;
     background-color: rgb(30, 30, 30);
 }
@@ -25,12 +30,13 @@ html {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+
     border-radius: 2px;
     list-style-type: none;
 }
 
 .navigation-bar__list-item {
-    padding: 10px;
+    padding: 14px 22px;
     color: whitesmoke;
 }
 
@@ -40,48 +46,169 @@ html {
     cursor: pointer;
 }
 
+.navigation-bar__list-item--more {
+    position: relative;
+    display: flex;
+}
+
+.dropdown-arrow {
+    content: '';
+    position: absolute;
+    top: 20px;
+    right: 8px;
+
+    display: block;
+    height: 0;
+    width: 0;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 5px solid white;
+    border-radius: 5px;
+}
+
+.navigation-bar__list-item--more:hover  .dropdown-arrow {
+	border-top: 7px solid rgb(130, 130, 130);
+    border-radius: 2px;
+}
+
+
+.list-item__more-list {
+    position: absolute;
+    top: 46px;
+    left: 0;
+
+    width: 150px;
+    border-radius: 2px;
+
+    background-color: white;
+    list-style-type: none;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.navigation-bar__list-item--more:hover .list-item__more-list {
+    animation: show-list ease .2s forwards;
+}
+
+@keyframes show-list {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+    }
+    50% {
+        opacity: 0.5;
+        visibility: visible;
+    }
+    100% {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.list-item__more-list-item {
+    padding: 10px;
+}
+
+.list-item__more-list-item:hover {
+    background-color: rgb(232, 232, 232);
+}
+
+.navigation-bar__search {
+    position: absolute;
+    right: 0;
+
+    height: 100%;
+    padding: 11px;
+    cursor: pointer;
+}
+
+.navigation-bar__search:hover {
+    background-color: rgb(179, 179, 179);
+}
+
+.navigation-bar__search:hover .material-symbols-outlined {
+    color: black;
+    transform: scale(1.2);
+}
+.material-symbols-outlined {
+    color: white;
+    line-height: 100%;
+    transform: scale(1.1);
+}
+
 .banner {
+    position: absolute;
+    top: 0;
+    left: 0;
     height: 600px;
-    width: auto;
+    width: 100%;
     background-size: cover;
-    background-image: url('../img/img_la.jpg');
+    background-image: url('../img/902865.jpg');
+}
+
+.banner__greetings {
+    position: absolute;
+    z-index: 2;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-59%);
+
+    color: whitesmoke;
+    font-size: 25px;
+}
+
+.banner__greetings-place {
+    font-weight: 300;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.banner__greetings-script {
+    font-size: 15px;
+    font-weight: 500;
 }
 
 .banner-picture2 {
-    background-image: url('../img/img_ny.jpg');
+    background-image: url('../img/tanjiro-and-nezuko.jpg');
 }
+
 .banner-picture3 {
-    background-image: url('../img/img_ch.jpg');
+    background-image: url('../img/wallpaperflare.com_wallpaper.jpg');
 }
 
 /* main content */
 .content__about {
-    margin: 20px 20px 0px 20px;
+    max-width: 800px;
+    margin: 20px auto;
 }
 
 .content__about-name {
-    font-weight: 500;
     text-align: center;
-    font-size: 26px;
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: 4px;
     padding: 20px 0;
 }
 
+.content__about-title {
+    margin-bottom: 15px;
+    font-style: italic;
+    font-weight: 300;
+    color: rgb(180, 180, 180);
+    text-align: center;
+}
+
 .content__about-description {
-    letter-spacing: 1px;
+    letter-spacing: .8px;
     line-height: 26px;
-    font-size: 0.9rem;
+    font-size: 13px;
+    text-align: justify;
 }
 /* end about */
 
 .content__members {
-    margin-top: 20px;
-}
-.content__members-header {
-    font-weight: 500;
-    text-align: center;
-    width: 100%;
-    padding: 20px 0;
-    font-size: 26px;
+    max-width: 800px;
+    margin: 40px auto;
 }
 .content__members-container {
     display: flex;
@@ -89,11 +216,24 @@ html {
 }
 
 .member__img {
-    height: 80%;
+    transform: scale(1);
+    height: 200px;
+    width: 180px;
+    border-radius: 2px;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
-.member__img img {
-    height: 100%;
+.member__img1 {
+    background-image: url('../img/natsu.jpg');
+}
+
+.member__img2 {
+    background-image: url('../img/erza.jpg');
+}
+
+.member__img3 {
+    background-image: url('../img/zeref.jpg');
 }
 
 .member__name {
@@ -102,35 +242,213 @@ html {
 }
 /* end member */
 
+/* tours start */
+.content__tours{
+    padding: 80px 0;
+    background-color: black;
+    color: white;
+}
+.content__tours-header h2{
+    font-weight: 300;
+    text-align: center;
+    font-size: 28px;
+    letter-spacing: 3px;
+    padding: 0 0 20px 0;
+}
+
+.content__tours-header p {
+    margin-bottom: 40px;
+    font-style: italic;
+    font-weight: 300;
+    color: rgb(180, 180, 180);
+    text-align: center;
+}
+.content__tours-header-infor{
+    position: relative;
+    max-width: 800px;
+    margin: 20px auto;
+    font-size: 15px;
+    font-weight: 300;
+    color: rgb(110, 110, 110);
+}
+.content__tours-header-infor--sep,
+.content__tours-header-infor--oct,
+.content__tours-header-infor--nov {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    height: 36px;
+    padding: 0 10px;
+    background-color: white;
+}
+
+.content__tours-header-infor--oct {
+    border-top: 1px solid rgb(201, 201, 201);
+    border-bottom: 1px solid rgb(201, 201, 201);
+}
+
+.soldout-btn{
+    display: none;
+    height: 26px;
+    margin-left: 20px;
+    font-size: 16px;
+    background-color: rgb(246, 70, 70);
+    line-height: 30px;
+}
+
+.show-soldout-btn {
+    display: block;
+    cursor: default;
+}
+
+.soldout-btn:hover {
+    background-color: rgb(246, 70, 70);
+    color: white;
+}
+.count-circle{
+    position: absolute;
+    right: 20px;
+
+    display: none;
+    height: 20px;
+    width: 24px;
+    border-radius: 50%;
+    padding-top: 2px;
+
+    text-align: center;
+    font-size: 14px;
+    
+    background-color: black;
+    color: white;
+
+    opacity: 1;
+}
+
+.show-count-circle {
+    display: block;
+}
+/* tours ends */
+
+/* ticket carts start */
+.content__tours-carts{
+    display: flex;
+    justify-content: space-between;
+    max-width: 800px;
+    margin: auto;
+    margin-top: 28px;
+}
+
+.ticket-cart__img{
+    height: 180px;
+    background-size: cover;
+}
+
+.ticket-cart__img.img1 {
+    background-image: url('../img/newyork.jpg');
+}
+
+.ticket-cart__img.img2 {
+    background-image: url('../img/paris.jpg');
+}
+.ticket-cart__img.img3 {
+    background-image: url('../img/sanfran.jpg');
+}
+.content__tours-ticket-cart {
+    background-color: white;
+    color: black;
+}
+.content__tours-ticket-cart:nth-child(2) {
+    margin: 0 16px;
+}
+
+.ticker-cart__description{
+    margin-top: 20px;
+}
+
+.ticker-cart__description h2 {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    margin-left: 20px;
+}
+.ticker-cart__description-date {
+    margin-bottom: 15px;
+    margin-left: 20px;
+    font-size: 16px;
+    color: rgb(220, 220, 220);
+}
+
+.ticker-cart__description-text {
+    margin-bottom: 15px;
+    margin-left: 20px;
+    font-size: 15px;
+}
+
+.content__tours-ticket-cart button {
+    margin-left: 20px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    height: 40px;
+    width: 100px;
+}
+/* ticket carts end */
 .content__contact-infor {
-    margin: 20px 20px 0 20px;
+    max-width: 800px;
+    height: 420px;
+    margin: auto;
+    padding: 80px 0;
 }
 
-.content__contact-infor .contact-infor__header {
-    margin: 20px 0;
+.content__contact-infor .contact-infor__header-h2 {
     text-align: center;
-    font-size: 26px;
+    font-size: 28px;
+    font-weight: 300;
+    letter-spacing: 3px;
 }
 
+.contact-infor__main {
+    display: flex;
+    justify-content: space-between;
+}
 .content__contact-infor .contact-infor__address {
-    margin: 20px 0;
-    text-align: center;
     font-style: normal;
+    font-size: 18px;
+}
+
+.content__contact-infor .contact-infor__address p {
+    margin: 4px 0;
+}
+
+.content__contact-infor .contact-infor__address .material-symbols-outlined {
+    position: relative;
+    top: 5px;
+    left: -10px;
+    color: black;
+    font-size: 22px;
 }
 /* end contact address */
 
-.content__contact-infor .contact-infor__form-title {
+.content__contact-infor .contact-infor__header-h3 {
+    margin: 20px 0 40px;
     font-style: italic;
     font-weight: 300;
     font-size: 16px;
     text-align: center;
+    color: rgb(190, 190, 190);
 }
 
+form {
+    position: relative;
+}
 input {
+    margin: 0 0 5px;
+    padding: 12px;
+    border: 1px solid rgb(158, 158, 158);
+}
+
+input[placeholder="Message"] {
     width: 100%;
-    padding: 10px;
-    border: none;
-    border-bottom: 1px solid rgb(158, 158, 158);
 }
 
 input:focus {
@@ -138,11 +456,6 @@ input:focus {
 }
 
 button {
-    position: relative;
-    left: 50%;
-    top: 20px;
-    transform: translateX(-50%);
-
     width: 80px;
     height: 36px;
     border: none;
@@ -153,14 +466,20 @@ button {
     cursor: pointer;
 }
 
+.send-button {
+    position: absolute;
+    right: 0;
+    bottom: -50px;
+}
+
 button:hover {
     background-color: rgb(196, 198, 199);
     color: black;
 }
 /* end contact form */
 
-.contact-infor__banner {
-    height: 500px;
+.footer__banner {
+    height: 800px;
     width: auto;
     margin-top: 50px;
     background-image: url(../img/map.jpg);
@@ -168,15 +487,37 @@ button:hover {
     background-repeat: no-repeat;
 }
 
-.footer {
-    margin: 20px 0 40px 0;
-}
 
-.footer p {
+.footer p,
+.footer p a {
+    margin: 40px 0 40px 0;
     text-align: center;
+    color: rgb(86, 86, 86);
 }
 
-@media only screen and (760px < width < 1000px) {
+@media only screen and (width < 800px) {
+    .content__tours-carts,
+    .content__about,
+    .content__members,
+    .content__tours-header-infor {
+        padding: 0 20px;
+    }
+
+    .content__contact-infor {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .count-circle {
+        right: 40px;
+    }
+
+}
+
+@media only screen and (700px < width < 800px) {
+    .header {
+        height: 550px;
+    }
     .banner {
         height: 550px;
     }
@@ -185,7 +526,11 @@ button:hover {
     }
 }
 
-@media only screen and (580px < width <= 760px) {
+@media only screen and (580px < width <= 700px) {
+
+    .header {
+        height: 450px;
+    }
     .banner {
         height: 450px;
     }
@@ -197,20 +542,63 @@ button:hover {
     }
 }
 
-@media only screen and (width < 580px) {
+@media only screen and (width < 600px) {
+
+    .header {
+        height: 320px;
+    }
+
     .banner {
-        height: 350px;
+        height: 320px;
+    }
+
+    .banner__greetings {
+        display: none;
     }
     .content__members-container {
         flex-flow: column;
     }
     .member__img {
-        display: flex;
-        justify-content: center;
+        height: 360px;
+        width: 320px;
+        margin: auto;
     }
 
     .contact-infor__banner {
         height: 300px;
         background-size: contain;
+    }
+
+    .content__tours-carts {
+        flex-flow: column;
+    }
+    
+    .content__tours-ticket-cart {
+        margin: 16px 0 !important;
+    }
+
+    .ticket-cart__img  {
+        height: 360px;
+    }
+
+    .contact-infor__main {
+        flex-flow: column;
+    }
+
+    .contact-infor__address {
+        margin-left: 10px;
+        margin-bottom: 40px;
+    }
+
+    input {
+        width: 100%;
+    }
+
+    .content__contact-infor {
+        height: 560px;
+    }
+
+    .footer__banner {
+        height: 310px;
     }
 }
